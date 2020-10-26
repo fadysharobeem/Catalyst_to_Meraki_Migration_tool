@@ -1,0 +1,91 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/format.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova">
+  <style>
+  #loading {
+    width: 32px;
+    height: 32px;
+    display: none;
+    background-image:url("/static/ajax-loader.gif");
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    cursor: wait;
+    }
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 6px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #4CAF50;
+      color: white;
+    }
+    </style>
+    <script type='text/javascript'>
+        function loading(){
+          document.getElementById("loading").style.display = "block";
+          document.getElementById("Fady").style.display = "block";
+          document.getElementById("content").style.display = "none";
+        }
+    </script>
+  </head>
+
+  <body>
+    <div id ="content" style="text-align:center;" class="container2">
+    <form onsubmit="loading();" id="loginForm" style="font-family: 'Proxima Nova', serif; font-size:13pt" >
+      <p style="font-family: 'Proxima Nova', serif; font-size:25pt">Meraki Downlink Configuration</p>
+      <br/>
+
+      <table id = "customers">
+        <tr>
+        <th><b/>Interface Name</th>
+        <th style="text-align: left;"><b/>Configuration</th>
+      </tr>
+      {% for key, value in ToBeConfigured.items()%}
+      <tr>
+        <td >  <p><label>{{key}}</label></td>
+        <td style="text-align: left;">
+          <table>
+          {% for key2, value2 in ToBeConfigured[key].items() %}
+          <tr>
+            <td>{{key2}}</td>
+            <td>{{value2}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        </td>
+      </tr>
+      {% endfor %}
+      </table>
+
+    <div id="nothing" style="text-align:center;" class="container">
+    <br/>
+      <button  type="submit" formaction="/confirm" formmethod="POST">Confirm</button>
+      <button  type="submit" formaction="/" formmethod="GET">Back</button>
+    </div>
+  </form>
+  </div>
+  <div id="loading" class="container"></div>
+  <div id="Fady" style="text-align:center; display:none;">
+    <br>Please Wait, the configuration is getting copied</br>
+  </div>
+</div>
+</body>
+
+</html>

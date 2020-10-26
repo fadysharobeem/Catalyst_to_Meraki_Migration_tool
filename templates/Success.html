@@ -1,0 +1,64 @@
+<html>
+<head>
+  <style>
+  #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+  #customers tr:hover {background-color: #ddd;}
+
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }
+</style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/format.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova">
+  </head>
+
+  <body>
+    <div id ="content" style="text-align:center;" class="container2">
+
+  <form method="GET" action="/" id="loginForm" style="font-family: 'Proxima Nova', serif; font-size:13pt"  >
+    <table id = "customers">
+      <tr>
+      <th><b/>Switch Serial Number</th>
+      <th style="text-align: center;"><b/>Configured</th>
+      <th style="text-align: center;"><b/>Port Numbers</th>
+    </tr>
+    {% for key, value in configured_ports.items() %}
+    <tr>
+      <td rowspan="2">  <p><label>{{key}} </label></td>
+      <td style="text-align: center;"> <span style="color:MediumSeaGreen;">&#10003;</span></td>
+      <td style="text-align: center;"> {{configured_ports[key]}}</td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"> <span style="color:Tomato;">&#10008;</span></td>
+      <td style="text-align: center;"> {{unconfigured_ports[key]}}</td>
+    </tr>
+    {% endfor %}
+
+    </table>
+    <div id="nothing" style="text-align:center;" class="container">
+    <br/>
+    <button  type="submit">Back</button>
+    <br/>
+  </div>
+
+
+  </div>
+  </body>
+
+</html>

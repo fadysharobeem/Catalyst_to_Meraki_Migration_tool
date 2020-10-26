@@ -1,0 +1,81 @@
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/format.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Proxima+Nova">
+  <style type="text/css">
+  #loading {
+    width: 32px;
+    height: 32px;
+    display: none;
+    background-image:url("/static/ajax-loader.gif");
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 60px;
+    cursor: wait;
+    }
+    </style>
+    <script type='text/javascript'>
+        function addFields(){
+            // Number of inputs to create
+            var number = document.getElementById("member").value;
+            if (number>8){
+              number=8;
+              document.getElementById("member").value = 8;
+            }
+            if (number==0){
+              number=1;
+            }
+            // Container <div> where dynamic content will be placed
+            var container = document.getElementById("container");
+            // Clear previous contents of the container
+            while (container.hasChildNodes()) {
+                container.removeChild(container.lastChild);
+            }
+            for (i=0;i<number;i++){
+                // Append a node with a random text
+                container.appendChild(document.createTextNode("SN of Switch " + (i+1)));
+                // Create an <input> element, set its type and name attributes
+                var input = document.createElement("input");
+                input.type = "text";
+                input.name = "member" + i;
+                input.style.textAlign = "center";
+                container.appendChild(input);
+                // Append a line break
+                container.appendChild(document.createElement("br"));
+            }
+        }
+
+        function loading(){
+          document.getElementById("loading").style.display = "block";
+          document.getElementById("Fady").style.display = "block";
+          document.getElementById("content").style.display = "none";
+        }
+    </script>
+</head>
+
+<body>
+  <div id ="content" style="text-align:center;" class="container">
+  <form onsubmit="loading();" method="POST" action="/api" enctype="multipart/form-data" id="loginForm" style="font-family: 'Proxima Nova', serif; font-size:13pt" >
+    <p>Enter the API Key<input type="text" name="fname" style="text-align:center;" required></input></p>
+    <p>Enter Webex Teams email <input type="email" name="Webex_email" style="text-align:center;"></input></p>
+    <br>Configuration file of Catalyst<input type="file" name="file" style="margin:auto; text-align:center;" required></br>
+    <br/>Number of switch members in the stack:
+    <input type="text" id="member" name="member" value="" onchange="addFields()" style="text-align:center;" required>(max. 8)<br />
+    <div id="container" style="text-align:center;" class="container"/>
+    </div>
+    </input>
+    <div id="nothing" style="text-align:center;" class="container">
+      <button  type="submit">Start Migration</button>
+    </div>
+  </div>
+</form>
+
+    <div id="loading" class="container"></div>
+    <div id="Fady" style="text-align:center; display:none;">
+      <br>Please wait while parsing Cisco Catalyst configuration</br>
+    </div>
+</div>
+
+</body>
+</html>
