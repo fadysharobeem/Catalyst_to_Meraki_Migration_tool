@@ -40,6 +40,11 @@ Webex Teams bot is needed to get notification after finishing the migration. Cre
     $ sudo apt install python3-pip
     ```
 2. Install packages from the requirements file.
-   `sudo pip3 install -r requirements.txt`.
+    ```bash
+   $ sudo pip3 install -r requirements.txt
+    ```
 3. Change the Webex Teams bearer in [`usr_info.py`](#usr_info.py).
-4. Run the application `python3 app.py`.
+4. Run the application 
+    ```bash
+   $ python3 app.py
+    ```
