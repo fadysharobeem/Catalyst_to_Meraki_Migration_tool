@@ -51,4 +51,4 @@ Webex Teams bot is needed to get notification after finishing the migration. Cre
     
 ### Use
 
-From any browser enter http://<ip address>:5000
+From any browser enter http://ip_address:5000 or http://localhost:5000
