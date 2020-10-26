@@ -48,3 +48,7 @@ Webex Teams bot is needed to get notification after finishing the migration. Cre
     ```bash
    $ python3 app.py
     ```
+    
+### Use
+
+From any browser enter http://<ip address>:5000
