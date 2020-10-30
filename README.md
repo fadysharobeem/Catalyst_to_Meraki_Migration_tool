@@ -52,3 +52,5 @@ Webex Teams bot is needed to get notification after finishing the migration. Cre
 ### Use
 
 From any browser enter http://ip_address:5000 or http://localhost:5000
+
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/fadysharobeem/Catalyst_to_Meraki_Migration_tool)
