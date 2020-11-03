@@ -19,6 +19,8 @@ After the configuration pushed to Meraki dashboard, the script will send a Webex
 
 ![High Level Design](static/Cat2MS_Migration_tool.png)
 
+Once the python script is running, the below UI will be accessable to enter the required details to migration the Catalyst configuration to Meraki MS. (static/Migration_tool_UI.png)
+
 - [Webex Teams](https://developer.webex.com/)
 - [Python 3](https://www.python.org/)
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
