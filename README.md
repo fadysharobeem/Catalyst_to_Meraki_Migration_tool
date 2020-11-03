@@ -25,6 +25,10 @@ After the configuration pushed to Meraki dashboard, the script will send a Webex
 
 ### Configuration
 
+#### Obtain Meraki API key
+
+Meraki API write Key is needed to allow the transfer of the configuration. Obtain Meraki API key [here](https://developer.cisco.com/meraki/api/#!authorization/obtaining-your-meraki-api-key).
+
 #### Cisco Catalyst show run
 
 A show run of the Cisco Catalyst configuration needs to be uploaded to the tool, so make sure to keep the latest copy saved and it needs to be in txt format.
