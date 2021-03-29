@@ -197,7 +197,9 @@ def Meraki_config(api,sw_list,my_dict,Downlink_list):
                         my_dict[x]['Port_Sec'] = ""
 
                 ## Check the switch that mapped to those catalyst ports
-                    sw = int(my_dict[x]['sw_module'])-1
+                    sw = int(my_dict[x]['sw_module'])
+                    if not sw == 0:
+                        sw -=1
                     print("Switch Serial Number "+sw_list[sw])
 
                 ## Test if the interface has Port security configured or not then apply the right Meraki configuration
@@ -224,7 +226,9 @@ def Meraki_config(api,sw_list,my_dict,Downlink_list):
                     except:
                         my_dict[x]['trunk_allowed'] = "1-1000"
 
-                    sw = int(my_dict[x]['sw_module'])-1
+                    sw = int(my_dict[x]['sw_module'])
+                    if not sw == 0:
+                        sw -=1
                     try:
                         config_access_port_trunk(sw_list[sw],my_dict[x]['port'],my_dict[x]["desc"],my_dict[x]["active"],my_dict[x]['mode'],my_dict[x]['native'],my_dict[x]['trunk_allowed'])
                     except:
